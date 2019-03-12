@@ -1,0 +1,36 @@
+Granting sub groups access to laps passwords on OUs
+The function is below:
+
+$adgroup = get-adgroup ‘YourGroup’
+$objOU =  Get-ADOrganizationalUnit ‘DistinguishednameofSubOU’
+$inheritanceType = ‘Descendents’
+
+
+Function ReadComputerAdmPwd($objGroup, $objOU, $inheritanceType)
+{
+$error.Clear()
+
+$groupSID = New-Object System.Security.Principal.SecurityIdentifier $objGroup.SID
+$objAcl = get-acl $objOU
+
+# The schema must be extended for LAPS
+$objAcl.AddAccessRule((New-Object System.DirectoryServices.ActiveDirectoryAccessRule $groupSID,"ReadProperty","Allow",$guidmap["ms-Mcs-AdmPwd"],$inheritanceType,$guidmap["computer"]))
+$objAcl.AddAccessRule((New-Object System.DirectoryServices.ActiveDirectoryAccessRule $groupSID,"ExtendedRight","Allow",$inheritanceType,$guidmap["computer"]))
+
+try
+{
+    Set-Acl -AclObject $objAcl  -path $objOU
+}
+catch
+{
+    Write-Host -ForegroundColor Red ("ERROR: Unable to grant the group " + $objGroup.Name + " permissions to read local administrator password on OU" + $objOU)
+}
+If(!$error)
+{
+    Write-Host -ForegroundColor Green ("INFORMATION: Granted the group " + $objGroup.Name + " permissions to read local administrator password on OU " + $objOU)
+}
+
+}
+
+Example of using the function:
+ReadComputerAdmPWD -objgroup $adgroup -objOU $objOU -inheritancetype $inheritancetype
