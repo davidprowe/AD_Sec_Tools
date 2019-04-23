@@ -11,9 +11,7 @@ $specificgroup = 'server operators'
 if ($testspecificgroup -eq $true) {$g = (Get-ADGroup $specificgroup).distinguishedname}
 else{}
 $drive = 'ad'
-#Add-HarADDrives 0 $account f
-#======================================================================================
-#test for path and create folder if not exist
+
 if((Test-Path $logdir) -eq 0)
 {
 mkdir $logdir

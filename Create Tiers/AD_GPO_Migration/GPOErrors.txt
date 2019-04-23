@@ -1,0 +1,11 @@
+*- Tier 0 Host Guardian Service Administration Policy
+*- Tier 2 PAWs
+*- Tier 1 PAWs
+*- Tier 0 Servers
+*- Tier 0 PAWs
+*- Computer Quarantine
+*- Tier 2 Workstations
+*- Tier 1 Servers
+
+
+Administrators - need to be 

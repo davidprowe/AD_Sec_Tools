@@ -1,0 +1,5 @@
+Source,Destination,Type
+"wingtiptoys.local","cohovineyard.com","Domain"
+"wingtiptoys","cohovineyard","Domain"
+"\\wingtiptoys.local\","\\cohovineyard.com\","UNC"
+"\\wingtiptoys\","\\cohovineyard\","UNC"
