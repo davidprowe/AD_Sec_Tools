@@ -10,17 +10,16 @@ ADDS
 Active directory powershell modules
 
 Installing
-Update the CSV to contain the proper 3 letter codes for your environment \AD_OU_CreateStructure\3lettercodes.csv.
-    Open this file with a text editor and edit the columns with the appropriate 3 letter codes for an organization
-	
-Run DeployADStructure.ps1 to create a tiered OU structure, install LAPS, create admin groups and set permissions on the tiers, and import microsoft secure standard GPOs
-Administrative roles and groups are created in the ADMIN ou at the root of the domain.  These groups have permissions on the appropriate tier and affiliate code.
+PLACEHOLDER FOR instructions.  
+AD_Computer_CachedCreds - script description and instructions
+AD_GetACL_on_OBJECTS - scripts descriptions and reading instructions
+AD_LAPS_INSTALL - script - run as schema admin, and import GPO as found in pictures in the presentation folder.
+CREATE TIERS - subfolder contains additional instructions
 
 To learn more about Microsoft tiers, please start with: https://social.technet.microsoft.com/wiki/contents/articles/37509.active-directory-red-forest-design-aka-enhanced-security-administrative-environment-esae.aspx 
 
 Authors
-David Rowe - Initial work - OU structure, LAPS, Roles & permissions, set acl, gpo migration. Tweet me @customes for questions
-Joel Nentwich - Create admin roles under AD_AssignAdminRoles
+David Rowe - @customes
 See also the list of contributors who participated in this project.
 
 License
