@@ -247,13 +247,11 @@ Function Clone-TierAdminGroups{
                 write-verbose -Message "Checking for $CloneToUser"
                 $ADCloneToCheck = Get-aduser $CloneToUser -Properties memberof
                 }
-            Catch{ write-verbose -Message "Checking for HUID"
-                Try{$ADCloneToCheck = get-aduser -f{harvardEduADHUID -eq $CloneToUser} -Properties memberof} 
-                    Catch{}
-                    if (!$ADCloneToCheck){
+            Catch{
+                
                     write-warning "$CloneToUser not found in domain. Exiting script"
                     break
-                    }
+                    
             }
         
 
@@ -262,13 +260,10 @@ Function Clone-TierAdminGroups{
                 write-verbose -Message "Checking for $CloneFromUser"
                 $ADCloneFromCheck = Get-aduser $CloneFromUser -Properties memberof
                 }
-            Catch{ write-verbose -Message "Checking for HUID"
-                Try{$ADCloneFromCheck = get-aduser -f{harvardEduADHUID -eq $CloneFromUser} -Properties memberof} 
-                    Catch{}
-                    if (!$ADCloneFromCheck){
+            Catch{ 
                     write-warning "$CloneFromUser not found in domain. Exiting script"
                     break
-                    }
+                    
             }
 
 

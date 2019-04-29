@@ -2,7 +2,7 @@ Function New-TierAdminUser{
     
 	<#
     .SYNOPSIS
-	    Creates a new administrator in the tiered environment.  Adds them to their Harvard affiliatecode admin group.
+	    Creates a new administrator in the tiered environment.  Adds them to their affiliatecode admin group.
     .FUNCTIONALITY
         Active Directory tiered administration
     .DESCRIPTION
